@@ -1,0 +1,25 @@
+//Bootstrap variable overrides
+@import "variables.scss";
+
+//Bootstrap default styles
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+
+//Custom styles
+@import "./components/icons.scss";
+@import "./components/headings.scss";
+
+.nav-link:hover,
+.view-more:hover,
+.navbar-brand:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.mw {
+    &-450 {
+        max-width: 450px;
+    }
+    &-650 {
+        max-width: 650px;
+    }
+}

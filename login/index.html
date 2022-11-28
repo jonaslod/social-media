@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="DuckIt login page" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Sign in | DuckIt</title>
+        <link rel="stylesheet" href="/dist/css/styles.css" />
+        <link rel="icon" href="/img/icon/duck-icon.png" />
+        <script src="/src/js/login.js" type="module" defer></script>
+    </head>
+    <body class="d-flex h-100 align-items-center bg-primary text-break">
+        <main class="mw-450 p-4 pb-2 rounded m-auto bg-white">
+            <section class="d-flex justify-content-center align-items-center flex-column flex-sm-row">
+                <div class="signin-logo me-2 d-flex align-items-center">
+                    <img src="/img/duck.png" alt="Social media logo" class="w-100 p-0" />
+                </div>
+                <h1 class="d-inline-block m-0">Sign in to DuckIt</h1>
+            </section>
+            <div class="form-container">
+                <form action="/profile">
+                    <div class="username-wrapper d-none form-floating mt-2">
+                        <input type="text" id="username" class="border form-control" placeholder="Username ..." minlength="1" maxlength="20" />
+                        <label for="username">Username</label>
+                        <p class="username-error d-none text-danger">Username is required</p>
+                    </div>
+                    <div class="form-floating my-2">
+                        <input type="email" class="border form-control" id="email" placeholder="example@email.com" required />
+                        <label for="email">Email</label>
+                        <p class="email-error d-none text-danger">Email is required (example@email.com)</p>
+                    </div>
+                    <div class="form-floating">
+                        <input
+                            type="password"
+                            class="border form-control"
+                            id="password"
+                            placeholder="Password ..."
+                            minlength="8"
+                            maxlength="20"
+                            required
+                        />
+                        <label for="password">Password</label>
+                        <p class="password-error d-none text-danger">Password is required (minimum 8 characters)</p>
+                    </div>
+                    <div class="form-group form-check my-3 d-flex justify-content-center p-0">
+                        <button type="button" class="btn btn-link" id="btnRegister">Register an account</button>
+                    </div>
+                    <button type="submit" class="btn btn-secondary w-100" id="btnSignIn">Sign in</button>
+                </form>
+                <p id="form-feedback"></p>
+            </div>
+        </main>
+        <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

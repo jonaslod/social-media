@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="DuckIt profile page" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Loading ... | DuckIt</title>
+        <link rel="stylesheet" href="/dist/css/styles.css" />
+        <link rel="icon" href="/img/icon/duck-icon.png" />
+        <script src="/src/js/profile.js" type="module" defer></script>
+    </head>
+    <body class="bg-light vh-100 d-flex flex-column text-break">
+        <header>
+            <nav class="navbar navbar-expand-sm navbar-dark bg-primary" aria-label="Main site navigation">
+                <div class="container-fluid mw-650">
+                    <a class="navbar-brand d-flex align-items-center" href="/">
+                        <div><img src="/img/duck.png" alt="Logo image" class="w-100" /></div>
+                        <span class="mx-2">DuckIt</span>
+                    </a>
+                    <button
+                        class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#siteNavigation"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"
+                    >
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse pb-2 pb-sm-0" id="siteNavigation">
+                        <ul class="navbar-nav me-auto mb-2 mb-sm-0">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/">Home</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link active dropdown-toggle" aria-current="page" data-bs-toggle="dropdown" aria-expanded="false"
+                                    >Profile</a
+                                >
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#details">View profile</a></li>
+                                    <li><a class="dropdown-item" href="#contacts">Contacts</a></li>
+                                    <li><a class="dropdown-item" href="#post">Write post</a></li>
+                                    <li><a class="dropdown-item" href="#posts">Posts</a></li>
+                                    <li><a class="dropdown-item" href="/profile/?logout=true">Log out</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <form action="" id="search-form" class="d-flex">
+                            <input
+                                type="text"
+                                id="search-in-posts"
+                                class="form-control rounded-0 rounded-start border-end-0"
+                                placeholder="Search ..."
+                                aria-label="Search"
+                            />
+                            <button type="submit" class="border btn btn-link rounded-0 rounded-end border-start-0 py-0 px-2 bg-white">
+                                <div class="category-icon d-flex flex-row align-items-center justify-content-center">
+                                    <img src="../img/icon/search-icon.png" alt="search icon" class="w-100" />
+                                </div>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <main class="mw-650 m-auto bg-white container-fluid p-4">
+            <div class="loading">
+                <h1 class="fst-italic">Loading profile ...</h1>
+                <div class="spinner-border text-secondary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+            <div class="profile-wrapper d-none">
+                <div class="row">
+                    <section class="col-md-8 mb-4" id="details">
+                        <div class="d-flex align-items-center">
+                            <div class="profile-icon me-3 d-flex align-items-center justify-content-center">
+                                <img src="/img/icon/profile-icon.png" alt="Profile icon" class="mw-100 mh-100" />
+                            </div>
+                            <h1>Loading ...</h1>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vehicula maximus risus, eget luctus orci egestas quis.</p>
+                    </section>
+                    <section class="col-md-4 mb-4" id="contacts">
+                        <h2>Contacts</h2>
+                        <div class="px-3 row gap-2">
+                            <div class="col-12 col-sm col-md-12 py-1 d-flex align-items-center border border-dark rounded">
+                                <div class="contact-icon d-flex align-items-center">
+                                    <img src="/img/icon/profile-icon.png" alt="Contact 1 profile icon" class="w-100" />
+                                </div>
+                                <p class="my-0 ms-2">Friend of user</p>
+                            </div>
+                            <div class="col-12 col-sm col-md-12 py-1 d-flex align-items-center border border-dark rounded">
+                                <div class="contact-icon d-flex align-items-center">
+                                    <img src="/img/icon/profile-icon.png" alt="Contact 2 profile icon" class="w-100" />
+                                </div>
+                                <p class="my-0 ms-2">Friend of user</p>
+                            </div>
+                            <div class="col-12 col-sm col-md-12 py-1 d-flex align-items-center border border-dark rounded">
+                                <div class="contact-icon d-flex align-items-center">
+                                    <img src="/img/icon/profile-icon.png" alt="Contact 3 profile icon" class="w-100" />
+                                </div>
+                                <p class="my-0 ms-2">Friend of user</p>
+                            </div>
+                            <div
+                                class="view-more col-12 col-sm col-md-12 d-flex align-items-center justify-content-center border border-dark rounded bg-secondary"
+                            >
+                                <a href="#" class="p-2 my-0 text-decoration-none text-reset">View all &gt;&gt;</a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <hr class="border border-dark" />
+                <section class="mb-4 d-none" id="post">
+                    <h3>Post to wall</h3>
+                    <form action="" id="publish-post">
+                        <div>
+                            <label for="post-title" class="form-label">Title:</label>
+                            <input type="text" class="border form-control" id="post-title" placeholder="Title ..." />
+                            <p id="title-error" class="d-none m-0 text-danger">Titles are required</p>
+                        </div>
+                        <div class="my-3">
+                            <label for="post-tags" class="form-label">Tags:</label>
+                            <input type="text" class="form-control" id="post-tags" />
+                            <p>
+                                <span class="fw-bold">Tags:</span>
+                                <span id="tag-list" class="fst-italic">none</span>
+                            </p>
+                            <button type="button" id="add-tag" class="btn btn-primary">Add tag</button>
+                            <button type="button" id="remove-tags" class="btn btn-primary">Remove tags</button>
+                        </div>
+                        <div>
+                            <label for="post-body" class="form-label">What do you want to tell the world?</label>
+                            <textarea class="form-control" id="post-body" placeholder="Content ..."></textarea>
+                        </div>
+                        <button type="submit" class="w-100 mt-3 btn btn-secondary">Post</button>
+                    </form>
+                    <p class="form-feedback d-none text-danger">Please review feedback</p>
+                </section>
+                <section class="row" id="posts">
+                    <h4>Previous posts</h4>
+                    <div class="post-container row">
+                        <p>This user has not published any posts.</p>
+                    </div>
+                </section>
+            </div>
+        </main>
+        <footer class="px-3 py-2 bg-dark mt-auto">
+            <div class="container">
+                <div class="mw-650 row mx-auto">
+                    <div class="col-sm-6 d-flex justify-content-center justify-content-sm-start">
+                        <a class="text-decoration-none text-white py-2 me-4" href="/">Home</a>
+                        <a class="text-decoration-none text-white py-2 text-decoration-underline" href="/">Profile</a>
+                    </div>
+                    <a
+                        href="/"
+                        class="col-sm-6 d-flex flex-row align-items-center justify-content-center justify-content-sm-end text-decoration-none"
+                    >
+                        <div class="icon d-flex align-items-center me-1">
+                            <img src="/img/icon/duck-icon.png" alt="Social media logo" class="w-100" />
+                        </div>
+                        <span class="text-white">&copy;DuckIt</span>
+                    </a>
+                </div>
+            </div>
+        </footer>
+        <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

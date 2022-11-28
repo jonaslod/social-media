@@ -7,12 +7,13 @@
         <title>Home | DuckIt</title>
         <link rel="stylesheet" href="dist/css/styles.css" />
         <link rel="icon" href="/img/icon/duck-icon.png" />
+        <script src="/src/js/home.js" type="module" defer></script>
     </head>
-    <body class="bg-light vh-100 d-flex flex-column">
+    <body class="bg-light vh-100 d-flex flex-column text-break">
         <header>
             <nav class="navbar navbar-expand-sm navbar-dark bg-primary" aria-label="Main site navigation">
                 <div class="container-fluid mw-650">
-                    <a class="navbar-brand d-flex align-items-center" href="index.html">
+                    <a class="navbar-brand d-flex align-items-center" href="/">
                         <div><img src="/img/duck.png" alt="Logo image" class="w-100" /></div>
                         <span class="mx-2">DuckIt</span>
                     </a>
@@ -30,121 +31,103 @@
                     <div class="collapse navbar-collapse pb-2 pb-sm-0" id="siteNavigation">
                         <ul class="navbar-nav me-auto mb-2 mb-sm-0">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                                <a class="nav-link active" aria-current="page" href="/">Home</a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="profile.html" data-bs-toggle="dropdown" aria-expanded="false">Profile</a>
+                                <a class="nav-link dropdown-toggle" href="/profile" data-bs-toggle="dropdown" aria-expanded="false">Profile</a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="profile.html#details">View profile</a></li>
-                                    <li><a class="dropdown-item" href="profile.html#contacts">Contacts</a></li>
-                                    <li><a class="dropdown-item" href="profile.html#post">Write post</a></li>
-                                    <li><a class="dropdown-item" href="profile.html#posts">Posts</a></li>
+                                    <li><a class="dropdown-item" href="/profile#details">View profile</a></li>
+                                    <li><a class="dropdown-item" href="/profile#contacts">Contacts</a></li>
+                                    <li><a class="dropdown-item" href="/profile#post">Write post</a></li>
+                                    <li><a class="dropdown-item" href="/profile#posts">Posts</a></li>
+                                    <li><a class="dropdown-item" href="/profile/?logout=true">Log out</a></li>
                                 </ul>
                             </li>
                         </ul>
-                        <form action="" class="d-flex">
-                            <input type="text" class="form-control me-2" placeholder="Search ..." aria-label="Search" />
-                            <button type="submit" class="btn btn-secondary">Search</button>
-                        </form>
                     </div>
                 </div>
             </nav>
         </header>
         <main class="mw-650 mx-auto bg-white container-fluid p-4">
-            <section class="mb-3 pb-3 border-bottom border-dark">
-                <h1>Home</h1>
-                <form action="">
-                    <label for="post" class="form-label">Something on your mind?</label>
-                    <textarea class="form-control" id="post" placeholder="Post ..."></textarea>
-                    <button type="submit" class="w-100 mt-3 btn btn-secondary">Post</button>
-                </form>
-            </section>
-            <section class="row">
-                <h2>Feed</h2>
-                <div class="col-12 col-sm-6 p-3">
-                    <div class="p-2 border border-dark rounded">
-                        <div class="d-flex align-items-center border-bottom pb-2">
-                            <div class="contact-icon me-2">
-                                <img src="/img/icon/profile-icon.png" alt="Profile icon" class="w-100" />
-                            </div>
-                            <div>
-                                <p class="m-0"><span class="fw-bold">John Doe</span> says:</p>
-                                <p class="m-0 text-muted">1hr ago</p>
-                            </div>
-                        </div>
-                        <p class="m-0 fst-italic text-break pt-2 pb-2">Quack quack quack!</p>
+            <h1>Home</h1>
+            <div class="loading">
+                <h2 class="fst-italic">Loading ...</h2>
+                <div class="spinner-border text-secondary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+            <div class="post-wrapper d-none">
+                <section class="mb-3">
+                    <div class="mb-3 d-sm-none">
+                        <button class="close-form w-100 btn btn-primary">Close form</button>
                     </div>
-                </div>
-                <div class="col-12 col-sm-6 p-3">
-                    <div class="p-2 border border-dark rounded">
-                        <div class="d-flex align-items-center border-bottom pb-2">
-                            <div class="contact-icon me-2">
-                                <img src="/img/icon/profile-icon.png" alt="Profile icon" class="w-100" />
-                            </div>
-                            <div>
-                                <p class="m-0"><span class="fw-bold">John Doe</span> says:</p>
-                                <p class="m-0 text-muted">1hr ago</p>
-                            </div>
+                    <hr class="d-sm-none" />
+                    <form action="" id="publish-post" class="d-sm-block pb-3 border-bottom">
+                        <h2>Publish a post</h2>
+                        <div>
+                            <label for="post-title" class="form-label">Title:</label>
+                            <input type="text" class="border form-control" id="post-title" placeholder="Title ..." />
+                            <p id="title-error" class="d-none m-0 text-danger">Titles are required</p>
                         </div>
-                        <p class="m-0 fst-italic text-break pt-2 pb-2">Quack quack quack!</p>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 p-3">
-                    <div class="p-2 border border-dark rounded">
-                        <div class="d-flex align-items-center border-bottom pb-2">
-                            <div class="contact-icon me-2">
-                                <img src="/img/icon/profile-icon.png" alt="Profile icon" class="w-100" />
-                            </div>
-                            <div>
-                                <p class="m-0"><span class="fw-bold">John Doe</span> says:</p>
-                                <p class="m-0 text-muted">1hr ago</p>
-                            </div>
+                        <div class="my-3">
+                            <label for="post-tags" class="form-label">Tags:</label>
+                            <input type="text" class="form-control" id="post-tags" />
+                            <p>
+                                <span class="fw-bold">Tags:</span>
+                                <span id="tag-list" class="fst-italic">none</span>
+                            </p>
+                            <button type="button" id="add-tag" class="btn btn-primary">Add tag</button>
+                            <button type="button" id="remove-tags" class="btn btn-primary">Remove tags</button>
                         </div>
-                        <p class="m-0 fst-italic text-break pt-2 pb-2">Quack quack quack!</p>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 p-3">
-                    <div class="p-2 border border-dark rounded">
-                        <div class="d-flex align-items-center border-bottom pb-2">
-                            <div class="contact-icon me-2">
-                                <img src="/img/icon/profile-icon.png" alt="Profile icon" class="w-100" />
-                            </div>
-                            <div>
-                                <p class="m-0"><span class="fw-bold">John Doe</span> says:</p>
-                                <p class="m-0 text-muted">1hr ago</p>
-                            </div>
+                        <div>
+                            <label for="post-body" class="form-label">What do you want to tell the world?</label>
+                            <textarea class="form-control" id="post-body" placeholder="Content ..."></textarea>
                         </div>
-                        <p class="m-0 fst-italic text-break pt-2 pb-2">Quack quack quack!</p>
+                        <button type="submit" class="w-100 mt-3 btn btn-secondary">Post</button>
+                    </form>
+                    <p class="form-feedback d-none text-danger">Please review feedback</p>
+                </section>
+                <section class="row d-flex justify-content-center">
+                    <h2>Feed</h2>
+                    <div class="pb-3 border-bottom">
+                        <label for="filter-by">Filter posts by:</label>
+                        <select id="filter-by" class="form-select mb-2">
+                            <option value="all" selected>All posts</option>
+                            <option value="today">Today</option>
+                            <option value="month">This month</option>
+                            <option value="year">This year</option>
+                        </select>
+                        <form action="" id="search-by" class="d-flex">
+                            <input
+                                type="text"
+                                id="search"
+                                class="form-control rounded-0 rounded-start border-end-0"
+                                placeholder="Search ..."
+                                aria-label="Search"
+                            />
+                            <button type="submit" class="border btn btn-link rounded-0 rounded-end border-start-0 py-0 px-2">
+                                <div class="category-icon d-flex flex-row align-items-center justify-content-center">
+                                    <img src="./img/icon/search-icon.png" alt="search icon" class="w-100" />
+                                </div>
+                            </button>
+                        </form>
                     </div>
-                </div>
-                <div class="col-12 col-sm-6 p-3">
-                    <div class="p-2 border border-dark rounded">
-                        <div class="d-flex align-items-center border-bottom pb-2">
-                            <div class="contact-icon me-2">
-                                <img src="/img/icon/profile-icon.png" alt="Profile icon" class="w-100" />
-                            </div>
-                            <div class="d-flex flex-column justify-content-start">
-                                <p class="m-0"><span class="fw-bold">John Doe</span> says:</p>
-                                <p class="m-0 text-muted">1hr ago</p>
-                            </div>
-                        </div>
-                        <p class="m-0 fst-italic text-break pt-2 pb-2">Quack quack quack!</p>
-                    </div>
-                </div>
-                <div class="col-12 mt-3 text-center view-more">
-                    <p class="fst-italic text-info">Load more posts &gt;&gt;</p>
-                </div>
-            </section>
+                    <div class="post-container row"></div>
+                    <button id="load-more-posts" class="d-none btn btn-link w-100 text-info fst-italic text-decoration-none">
+                        Load more posts &gt;&gt;
+                    </button>
+                </section>
+            </div>
         </main>
         <footer class="px-3 py-2 py-sm-1 bg-dark mt-auto">
             <div class="container">
                 <div class="mw-650 row mx-auto">
                     <div class="col-sm-6 d-flex justify-content-center justify-content-sm-start">
-                        <a class="text-decoration-none text-white py-2 me-4 text-decoration-underline" href="index.html">Home</a>
-                        <a class="text-decoration-none text-white py-2" href="profile.html">Profile</a>
+                        <a class="text-decoration-none text-white py-2 me-4 text-decoration-underline" href="/">Home</a>
+                        <a class="text-decoration-none text-white py-2" href="/profile">Profile</a>
                     </div>
                     <a
-                        href="index.html"
+                        href="/"
                         class="col-sm-6 d-flex flex-row align-items-center justify-content-center justify-content-sm-end text-decoration-none"
                     >
                         <div class="icon d-flex align-items-center me-1">

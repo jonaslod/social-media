@@ -11,7 +11,7 @@
  */
 export default async function displayPosts(container, posts, isProfilePage = false, avatar = "") {
     container.innerHTML = "";
-    if (typeof posts === "object" && posts.length > 0) {
+    if (Array.isArray(posts) && posts.length > 0) {
         const { defined: validateDefined } = (await import("../validation/index.mjs")).default;
         const { profileIcon: displayProfileIcon } = (await import("../display/index.mjs")).default;
         const { formatDate, writeTags } = (await import("../components/index.mjs")).default;

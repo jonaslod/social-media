@@ -9,7 +9,7 @@
  */
 export default function writeTags(tagList) {
     let html = "";
-    if (typeof tagList === "object" && tagList.length > 0) {
+    if (Array.isArray(tagList) && tagList.length > 0) {
         html = tagList.reduce((tags, tag) => {
             if (tags.length > 0) {
                 tags += ", ";

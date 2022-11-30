@@ -38,10 +38,9 @@ export default function displayPost(container, post) {
     authorNameWrapper.appendChild(authorName);
 
     //Upload date
-    const { year, month, day } = components.formatDate(updated);
     const uploadDateWrapper = document.createElement("p");
     uploadDateWrapper.setAttribute("class", "m-0 text-muted");
-    uploadDateWrapper.textContent = `${day}/${month}/${year}`;
+    uploadDateWrapper.textContent = components.formatDate(updated);
 
     //Profile details (Profile name and upload date)
     const profileDetails = document.createElement("div");

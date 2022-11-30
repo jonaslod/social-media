@@ -15,22 +15,16 @@ export default async function managePostFiltering(posts, filterValue, searchValu
     if (queryString && queryString.trim().length > 0) {
         filteredPosts = filteredPosts.filter(({ title }) => title.toLowerCase().includes(queryString.toLowerCase()));
     } else {
-        const newDate = new Date();
-        const date = {
-            year: newDate.getFullYear(),
-            month: newDate.getMonth() + 1,
-            date: newDate.getDate(),
-        };
-        const { formatDate } = (await import("../components/index.mjs")).default;
+        const todaysDate = new Date();
         switch (filterValue) {
             case "today":
-                filteredPosts = filteredPosts.filter(({ updated }) => formatDate(updated).day === date.date);
+                filteredPosts = filteredPosts.filter(({ updated }) => new Date(updated).getDate() === todaysDate.getDate());
                 break;
             case "month":
-                filteredPosts = filteredPosts.filter(({ updated }) => formatDate(updated).month === date.month);
+                filteredPosts = filteredPosts.filter(({ updated }) => new Date(updated).getMonth() === todaysDate.getMonth());
                 break;
             case "year":
-                filteredPosts = filteredPosts.filter(({ updated }) => formatDate(updated).year === date.year);
+                filteredPosts = filteredPosts.filter(({ updated }) => new Date(updated).getFullYear() === todaysDate.getFullYear());
                 break;
         }
         if (searchValue.trim().length > 0) {

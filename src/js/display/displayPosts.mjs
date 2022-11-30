@@ -40,10 +40,9 @@ export default async function displayPosts(container, posts, isProfilePage = fal
             nameWrapper.appendChild(saysSpan);
 
             //Upload date
-            const { year, month, day } = formatDate(updated);
             const timeWrapper = document.createElement("p");
             timeWrapper.setAttribute("class", "m-0 text-muted");
-            timeWrapper.textContent = `${day}/${month}/${year}`;
+            timeWrapper.textContent = formatDate(updated);
 
             const postDetails = document.createElement("div");
             postDetails.appendChild(nameWrapper);

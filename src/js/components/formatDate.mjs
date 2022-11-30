@@ -1,18 +1,14 @@
 /**
- * This will format an unformatted date to a formatted date object
+ * This will format an unformatted date
  * @param {string} unformattedDate Unformatted date
- * @returns {{year: number, month: number, day:number}} Formatted date
+ * @returns {string} Formatted date
  * @example
  * ```js
  * //Format date from API call
- * const { year, month, day } = formatDate(created);
+ * const date = formatDate(created);
  * ```
  */
 export default function formatDate(unformattedDate) {
-    const newDate = new Date(unformattedDate);
-    let year = newDate.getFullYear();
-    let month = newDate.getMonth();
-    let day = newDate.getDate();
-
-    return { year, month: (month += 1), day };
+    const date = new Date(unformattedDate);
+    return date.toLocaleDateString("en-GB", { year: "numeric", month: "long", day: "numeric" });
 }

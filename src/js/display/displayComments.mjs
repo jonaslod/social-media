@@ -31,10 +31,9 @@ export default function displayComments(container, comments) {
         commenterWrapper.appendChild(commenterSays);
 
         //Upload date
-        const { year, month, day } = components.formatDate(created);
         const commentDate = document.createElement("p");
         commentDate.setAttribute("class", "m-0");
-        commentDate.textContent = `(${day}/${month}/${year})`;
+        commentDate.textContent = components.formatDate(created);
 
         //Profile details (Profile name and upload date)
         const commenterDetails = document.createElement("div");

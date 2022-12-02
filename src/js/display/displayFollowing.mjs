@@ -1,6 +1,15 @@
 import display from "./index.mjs";
+/**
+ * This will create HTML elements for an array of following users
+ * @param {*} container The container which the function appends the users
+ * @param {*} users Array of user objects
+ * @example
+ * ```js
+ * displayFollowing(followingWrapper, followingUsers);
+ * ```
+ */
 export default function displayFollowing(container, users) {
-    if (users.length > 0) {
+    if (Array.isArray(users) && users.length > 0) {
         const showFollowers = (usersToDisplay) => {
             usersToDisplay.forEach(({ name, avatar }) => {
                 const contactIcon = display.profileIcon(avatar, name);

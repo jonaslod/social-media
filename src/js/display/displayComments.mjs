@@ -33,7 +33,7 @@ export default function displayComments(container, comments) {
         //Upload date
         const commentDate = document.createElement("p");
         commentDate.setAttribute("class", "m-0");
-        commentDate.textContent = components.formatDate(created);
+        commentDate.textContent = `(${components.formatDate(created)})`;
 
         //Profile details (Profile name and upload date)
         const commenterDetails = document.createElement("div");

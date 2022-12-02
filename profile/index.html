@@ -64,7 +64,7 @@
                 </div>
             </nav>
         </header>
-        <main class="mw-650 m-auto bg-white container-fluid p-4">
+        <main class="mw-650 mx-auto bg-white container-fluid p-4">
             <div class="loading">
                 <h1 class="fst-italic">Loading profile ...</h1>
                 <div class="spinner-border text-secondary" role="status">
@@ -75,40 +75,25 @@
                 <div class="row">
                     <section class="col-md-8 mb-4" id="details">
                         <div class="d-flex align-items-center">
-                            <div class="profile-icon me-3 d-flex align-items-center justify-content-center">
-                                <img src="/img/icon/profile-icon.png" alt="Profile icon" class="mw-100 mh-100" />
+                            <div id="profile-details" class="d-flex flex-row align-items-center pe-4">
+                                <div class="profile-icon me-3 d-flex align-items-center justify-content-center">
+                                    <img src="/img/icon/profile-icon.png" alt="Profile icon" class="mw-100 mh-100" />
+                                </div>
+                                <h1>Loading ...</h1>
                             </div>
-                            <h1>Loading ...</h1>
+                            <div id="follow-user-wrapper" class="d-flex align-items-center">
+                                <button id="follow-user" type="button" class="border btn btn-link border-0">
+                                    <div class="category-icon d-flex flex-row align-items-center justify-content-center">
+                                        <img id="following-icon" src="../img/icon/heart-empty.png" alt="Follow icon" class="w-100" />
+                                    </div>
+                                </button>
+                            </div>
                         </div>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vehicula maximus risus, eget luctus orci egestas quis.</p>
                     </section>
                     <section class="col-md-4 mb-4" id="contacts">
-                        <h2>Contacts</h2>
-                        <div class="px-3 row gap-2">
-                            <div class="col-12 col-sm col-md-12 py-1 d-flex align-items-center border border-dark rounded">
-                                <div class="contact-icon d-flex align-items-center">
-                                    <img src="/img/icon/profile-icon.png" alt="Contact 1 profile icon" class="w-100" />
-                                </div>
-                                <p class="my-0 ms-2">Friend of user</p>
-                            </div>
-                            <div class="col-12 col-sm col-md-12 py-1 d-flex align-items-center border border-dark rounded">
-                                <div class="contact-icon d-flex align-items-center">
-                                    <img src="/img/icon/profile-icon.png" alt="Contact 2 profile icon" class="w-100" />
-                                </div>
-                                <p class="my-0 ms-2">Friend of user</p>
-                            </div>
-                            <div class="col-12 col-sm col-md-12 py-1 d-flex align-items-center border border-dark rounded">
-                                <div class="contact-icon d-flex align-items-center">
-                                    <img src="/img/icon/profile-icon.png" alt="Contact 3 profile icon" class="w-100" />
-                                </div>
-                                <p class="my-0 ms-2">Friend of user</p>
-                            </div>
-                            <div
-                                class="view-more col-12 col-sm col-md-12 d-flex align-items-center justify-content-center border border-dark rounded bg-secondary"
-                            >
-                                <a href="#" class="p-2 my-0 text-decoration-none text-reset">View all &gt;&gt;</a>
-                            </div>
-                        </div>
+                        <h2>Loading ...</h2>
+                        <div id="following" class="px-3 row d-flex align-items-center"></div>
                     </section>
                 </div>
                 <hr class="border border-dark" />

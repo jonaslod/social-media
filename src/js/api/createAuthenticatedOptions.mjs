@@ -16,10 +16,10 @@ export default function createAuthenticatedOptions(method = "GET", body = null) 
         method: method,
         headers: {
             Authorization: `Bearer ${accessToken}`,
-            "Content-type": "application/json; charset=UTF-8",
         },
     };
     if (body) {
+        options.headers["Content-type"] = "application/json; charset=UTF-8";
         options["body"] = JSON.stringify(body);
     }
     return options;

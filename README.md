@@ -38,7 +38,7 @@ This project contains 3 dependencies:
 
 Bootstrap
 ```
-npm install bootstrap@5.2.2
+npm install bootstrap
 ```
 
 SASS

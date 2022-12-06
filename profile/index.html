@@ -2,12 +2,12 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <meta name="description" content="DuckIt homepage" />
+        <meta name="description" content="DuckIt profile page" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Home | DuckIt</title>
-        <link rel="stylesheet" href="dist/css/styles.css" />
+        <title>Loading ... | DuckIt</title>
+        <link rel="stylesheet" href="/dist/css/styles.css" />
         <link rel="icon" href="/img/icon/duck-icon.png" />
-        <script src="/src/js/home.js" type="module" defer></script>
+        <script src="/src/js/profile.js" type="module" defer></script>
     </head>
     <body class="bg-light vh-100 d-flex flex-column text-break">
         <header>
@@ -31,39 +31,75 @@
                     <div class="collapse navbar-collapse pb-2 pb-sm-0" id="siteNavigation">
                         <ul class="navbar-nav me-auto mb-2 mb-sm-0">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="/">Home</a>
+                                <a class="nav-link" href="/">Home</a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="/profile" data-bs-toggle="dropdown" aria-expanded="false">Profile</a>
+                                <a class="nav-link active dropdown-toggle" aria-current="page" data-bs-toggle="dropdown" aria-expanded="false"
+                                    >Profile</a
+                                >
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="/profile#details">View profile</a></li>
-                                    <li><a class="dropdown-item" href="/profile#contacts">Contacts</a></li>
-                                    <li><a class="dropdown-item" href="/profile#post">Write post</a></li>
-                                    <li><a class="dropdown-item" href="/profile#posts">Posts</a></li>
+                                    <li><a class="dropdown-item" href="#details">View profile</a></li>
+                                    <li><a class="dropdown-item" href="#contacts">Contacts</a></li>
+                                    <li><a class="dropdown-item" href="#post">Write post</a></li>
+                                    <li><a class="dropdown-item" href="#posts">Posts</a></li>
                                     <li><a class="dropdown-item" href="/profile/?logout=true">Log out</a></li>
                                 </ul>
                             </li>
                         </ul>
+                        <form action="" id="search-form" class="d-flex">
+                            <input
+                                type="text"
+                                id="search-in-posts"
+                                class="form-control rounded-0 rounded-start border-end-0"
+                                placeholder="Search ..."
+                                aria-label="Search"
+                            />
+                            <button type="submit" class="border btn btn-link rounded-0 rounded-end border-start-0 py-0 px-2 bg-white">
+                                <div class="category-icon d-flex flex-row align-items-center justify-content-center">
+                                    <img src="../img/icon/search-icon.png" alt="search icon" class="w-100" />
+                                </div>
+                            </button>
+                        </form>
                     </div>
                 </div>
             </nav>
         </header>
         <main class="mw-650 mx-auto bg-white container-fluid p-4">
-            <h1>Home</h1>
             <div class="loading">
-                <h2 class="fst-italic">Loading ...</h2>
+                <h1 class="fst-italic">Loading profile ...</h1>
                 <div class="spinner-border text-secondary" role="status">
                     <span class="visually-hidden">Loading...</span>
                 </div>
             </div>
-            <div class="post-wrapper d-none">
-                <section class="mb-3">
-                    <div class="mb-3 d-sm-none">
-                        <button class="close-form w-100 btn btn-primary">Close form</button>
-                    </div>
-                    <hr class="d-sm-none" />
-                    <form action="" id="publish-post" class="d-sm-block pb-3 border-bottom">
-                        <h2>Publish a post</h2>
+            <div class="profile-wrapper d-none">
+                <div class="row">
+                    <section class="col-md-8 mb-4" id="details">
+                        <div class="d-flex align-items-center">
+                            <div id="profile-details" class="d-flex flex-row align-items-center pe-4">
+                                <div class="profile-icon me-3 d-flex align-items-center justify-content-center">
+                                    <img src="/img/icon/profile-icon.png" alt="Profile icon" class="mw-100 mh-100" />
+                                </div>
+                                <h1>Loading ...</h1>
+                            </div>
+                            <div id="follow-user-wrapper" class="d-flex align-items-center">
+                                <button id="follow-user" type="button" class="border btn btn-link border-0">
+                                    <div class="category-icon d-flex flex-row align-items-center justify-content-center">
+                                        <img id="following-icon" src="../img/icon/heart-empty.png" alt="Follow icon" class="w-100" />
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vehicula maximus risus, eget luctus orci egestas quis.</p>
+                    </section>
+                    <section class="col-md-4 mb-4" id="contacts">
+                        <h2>Loading ...</h2>
+                        <div id="following" class="px-3 row d-flex align-items-center"></div>
+                    </section>
+                </div>
+                <hr class="border border-dark" />
+                <section class="mb-4 d-none" id="post">
+                    <h3>Post to wall</h3>
+                    <form action="" id="publish-post">
                         <div>
                             <label for="post-title" class="form-label">Title:</label>
                             <input type="text" class="border form-control" id="post-title" placeholder="Title ..." />
@@ -87,44 +123,20 @@
                     </form>
                     <p class="form-feedback d-none text-danger">Please review feedback</p>
                 </section>
-                <section class="row d-flex justify-content-center">
-                    <h2>Feed</h2>
-                    <div class="pb-3 border-bottom">
-                        <label for="filter-by">Filter posts by:</label>
-                        <select id="filter-by" class="form-select mb-2">
-                            <option value="all" selected>All posts</option>
-                            <option value="today">Today</option>
-                            <option value="month">This month</option>
-                            <option value="year">This year</option>
-                        </select>
-                        <form action="" id="search-by" class="d-flex">
-                            <input
-                                type="text"
-                                id="search"
-                                class="form-control rounded-0 rounded-start border-end-0"
-                                placeholder="Search ..."
-                                aria-label="Search"
-                            />
-                            <button type="submit" class="border btn btn-link rounded-0 rounded-end border-start-0 py-0 px-2">
-                                <div class="category-icon d-flex flex-row align-items-center justify-content-center">
-                                    <img src="./img/icon/search-icon.png" alt="search icon" class="w-100" />
-                                </div>
-                            </button>
-                        </form>
+                <section class="row" id="posts">
+                    <h4>Previous posts</h4>
+                    <div class="post-container row">
+                        <p>This user has not published any posts.</p>
                     </div>
-                    <div class="post-container row"></div>
-                    <button id="load-more-posts" class="d-none btn btn-link w-100 text-info fst-italic text-decoration-none">
-                        Load more posts &gt;&gt;
-                    </button>
                 </section>
             </div>
         </main>
-        <footer class="px-3 py-2 py-sm-1 bg-dark mt-auto">
+        <footer class="px-3 py-2 bg-dark mt-auto">
             <div class="container">
                 <div class="mw-650 row mx-auto">
                     <div class="col-sm-6 d-flex justify-content-center justify-content-sm-start">
-                        <a class="text-decoration-none text-white py-2 me-4 text-decoration-underline" href="/">Home</a>
-                        <a class="text-decoration-none text-white py-2" href="/profile">Profile</a>
+                        <a class="text-decoration-none text-white py-2 me-4" href="/">Home</a>
+                        <a class="text-decoration-none text-white py-2 text-decoration-underline" href="/">Profile</a>
                     </div>
                     <a
                         href="/"

@@ -139,6 +139,8 @@ export default function displayPost(container, post) {
                     backToHome.textContent = "Back to home >>";
                     container.appendChild(backToHome);
                 }
+            } else {
+                comments.classList.remove("d-none");
             }
         });
         btnControls.innerHTML = "";

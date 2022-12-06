@@ -1,7 +1,7 @@
 import display from "./index.mjs";
 /**
  * This will create HTML elements for an array of following users
- * @param {*} container The container which the function appends the users
+ * @param {HTMLElement} container The container which the function appends the users
  * @param {*} users Array of user objects
  * @example
  * ```js

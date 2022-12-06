@@ -1,6 +1,6 @@
 /**
  * This will display an array of posts to a specified container.
- * @param {*} container The container which the function appends the posts
+ * @param {HTMLElement} container The container which the function appends the posts
  * @param {Object[]} posts Array of posts
  * @param {boolean} [isProfilePage=false] If the current page is the profile page
  * @param {string} [avatar=null] Profile icon src (used on the profile page)

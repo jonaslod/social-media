@@ -5,7 +5,7 @@ import storage from "../storage/index.mjs";
 
 /**
  * This will display a single post to a specified container.
- * @param {*} container The container which the function appends the post
+ * @param {HTMLElement} container The container which the function appends the post
  * @param {Object} post The post object
  * @example
  * ```js

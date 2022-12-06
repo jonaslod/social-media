@@ -4,7 +4,7 @@ import display from "./index.mjs";
 
 /**
  * This will create HTML elements for an array of comment objects
- * @param {*} container The container which the function appends the comments
+ * @param {HTMLElement} container The container which the function appends the comments
  * @param {Object[]} comments Array of comments
  * @example
  * ```js

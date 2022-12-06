@@ -1,6 +1,6 @@
 /**
  * This will display a message to the user, detailing how they are not authenticated to view the page
- * @param {*} [container=document.querySelector("main")] Container which will contain the message
+ * @param {HTMLMainElement} [container=document.querySelector("main")] Container which will contain the message
  * @example
  * ```js
  * displayNotAuthenticated();

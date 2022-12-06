@@ -1,7 +1,7 @@
 /**
  * This will display an customizable error message to a container
  * @param {string} message The message which will be displayed
- * @param {*} [container=document.querySelector("main")] The container which will contain the error message
+ * @param {HTMLMainElement} [container=document.querySelector("main")] The container which will contain the error message
  * @example
  * ```js
  * displayError("While trying to fetch the profile.");

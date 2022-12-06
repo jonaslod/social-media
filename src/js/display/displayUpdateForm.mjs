@@ -5,7 +5,7 @@ import manage from "../manage/index.mjs";
 
 /**
  * This displays and populates the update form on the post page
- * @param {*} container The container which will contain the update form
+ * @param {HTMLElement} container The container which will contain the update form
  * @param {Object} post The post which is being updated
  * @example
  * ```js

@@ -33,9 +33,7 @@ export default function displayUpdateForm(container, post) {
     titleError.setAttribute("class", "d-none m-0 text-danger");
     titleError.textContent = "Titles are required";
     const titleWrapper = document.createElement("div");
-    titleWrapper.appendChild(titleLabel);
-    titleWrapper.appendChild(titleInput);
-    titleWrapper.appendChild(titleError);
+    titleWrapper.append(titleLabel, titleInput, titleError);
 
     const titleIsValid = () => {
         return manage.input(validation.length(titleInput.value, 0), titleInput, titleError);
@@ -61,8 +59,7 @@ export default function displayUpdateForm(container, post) {
     tagList.setAttribute("class", "fst-italic");
     tagList.textContent = writeTags(tags);
     const tagsShowcase = document.createElement("p");
-    tagsShowcase.appendChild(tagsBold);
-    tagsShowcase.appendChild(tagList);
+    tagsShowcase.append(tagsBold, tagList);
 
     const addTagBtn = document.createElement("button");
     addTagBtn.setAttribute("type", "button");
@@ -79,11 +76,7 @@ export default function displayUpdateForm(container, post) {
 
     const tagsWrapper = document.createElement("div");
     tagsWrapper.setAttribute("class", "my-3");
-    tagsWrapper.appendChild(tagsLabel);
-    tagsWrapper.appendChild(tagsInput);
-    tagsWrapper.appendChild(tagsShowcase);
-    tagsWrapper.appendChild(addTagBtn);
-    tagsWrapper.appendChild(removeTags);
+    tagsWrapper.append(tagsLabel, tagsInput, tagsShowcase, addTagBtn, removeTags);
 
     //Body
     const bodyLabel = document.createElement("label");
@@ -97,8 +90,7 @@ export default function displayUpdateForm(container, post) {
     bodyInput.setAttribute("placeholder", "Content ...");
     bodyInput.textContent = body ? body.toString() : "";
     const bodyWrapper = document.createElement("div");
-    bodyWrapper.appendChild(bodyLabel);
-    bodyWrapper.appendChild(bodyInput);
+    bodyWrapper.append(bodyLabel, bodyInput);
 
     //Form
     const formBtn = document.createElement("button");
@@ -108,10 +100,7 @@ export default function displayUpdateForm(container, post) {
 
     const updateForm = document.createElement("form");
     updateForm.setAttribute("id", "update-post");
-    updateForm.appendChild(titleWrapper);
-    updateForm.appendChild(tagsWrapper);
-    updateForm.appendChild(bodyWrapper);
-    updateForm.appendChild(formBtn);
+    updateForm.append(titleWrapper, tagsWrapper, bodyWrapper, formBtn);
     const formFeedback = document.createElement("p");
     formFeedback.setAttribute("class", "d-none text-danger");
     formFeedback.textContent = "Please review feedback";
@@ -135,8 +124,7 @@ export default function displayUpdateForm(container, post) {
         }
     });
 
-    container.appendChild(updateForm);
-    container.appendChild(formFeedback);
+    container.append(updateForm, formFeedback);
 
     //Close update form
     const closeIcon = document.createElement("img");

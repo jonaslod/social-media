@@ -23,8 +23,7 @@ export default function displayFollowing(container, users) {
 
                 const contact = document.createElement("div");
                 contact.setAttribute("class", "w-100 p-2 d-flex align-items-center border border-dark rounded");
-                contact.appendChild(contactIconWrapper);
-                contact.appendChild(contactName);
+                contact.append(contactIconWrapper, contactName);
 
                 const contactWrapper = document.createElement("a");
                 contactWrapper.setAttribute("class", "col-12 col-sm-3 col-md-12 py-1 p-md-0 mb-md-2 text-decoration-none text-black");

@@ -16,6 +16,5 @@ export default function displayError(message, container = document.querySelector
     messageContainer.textContent = message;
 
     container.innerHTML = "";
-    container.appendChild(heading);
-    container.appendChild(messageContainer);
+    container.append(heading, messageContainer);
 }

@@ -34,8 +34,7 @@ export default function displayPost(container, post) {
 
     const authorNameWrapper = document.createElement("p");
     authorNameWrapper.setAttribute("class", "m-0");
-    authorNameWrapper.appendChild(boldSpan);
-    authorNameWrapper.appendChild(authorName);
+    authorNameWrapper.append(boldSpan, authorName);
 
     //Upload date
     const uploadDateWrapper = document.createElement("p");
@@ -44,15 +43,13 @@ export default function displayPost(container, post) {
 
     //Profile details (Profile name and upload date)
     const profileDetails = document.createElement("div");
-    profileDetails.appendChild(authorNameWrapper);
-    profileDetails.appendChild(uploadDateWrapper);
+    profileDetails.append(authorNameWrapper, uploadDateWrapper);
 
     //Profile (details and contact icon)
     const profileWrapper = document.createElement("a");
     profileWrapper.setAttribute("class", "text-decoration-none text-black  d-flex align-items-center");
     profileWrapper.setAttribute("href", `/profile/?name=${author.name}`);
-    profileWrapper.appendChild(contactIconWrapper);
-    profileWrapper.appendChild(profileDetails);
+    profileWrapper.append(contactIconWrapper, profileDetails);
 
     //Category icon
     const categoryIcon = document.createElement("img");
@@ -72,8 +69,7 @@ export default function displayPost(container, post) {
     //Category (icon and content)
     const categoryWrapper = document.createElement("div");
     categoryWrapper.setAttribute("class", "d-flex align-items-center border-bottom my-3 pb-3");
-    categoryWrapper.appendChild(categoryIconWrapper);
-    categoryWrapper.appendChild(categoryContent);
+    categoryWrapper.append(categoryIconWrapper, categoryContent);
 
     //Post content (body)
     const postContent = document.createElement("p");
@@ -82,9 +78,7 @@ export default function displayPost(container, post) {
 
     //Everything together
     container.innerHTML = "";
-    container.appendChild(profileWrapper);
-    container.appendChild(categoryWrapper);
-    container.appendChild(postContent);
+    container.append(profileWrapper, categoryWrapper, postContent);
 
     //  Edit and delete buttons should only be shown if the
     //  user has the same name as the author of the post
@@ -144,7 +138,6 @@ export default function displayPost(container, post) {
             }
         });
         btnControls.innerHTML = "";
-        btnControls.appendChild(editBtn);
-        btnControls.appendChild(deleteBtn);
+        btnControls.append(editBtn, deleteBtn);
     }
 }

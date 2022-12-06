@@ -14,11 +14,9 @@ export default function displayNotAuthenticated(container = document.querySelect
     linkToLogin.setAttribute("href", "/login");
     linkToLogin.setAttribute("class", "text-info");
     linkToLogin.textContent = "sign in";
-    errorMessage.appendChild(linkToLogin);
-    errorMessage.appendChild(document.createTextNode(" to be authenticated."));
+    errorMessage.append(linkToLogin, " to be authenticated.");
     const heading = document.createElement("h1");
     heading.textContent = "Not authenticated";
     container.innerHTML = "";
-    container.appendChild(heading);
-    container.appendChild(errorMessage);
+    container.append(heading, errorMessage);
 }

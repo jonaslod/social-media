@@ -36,8 +36,7 @@ export default async function displayPosts(container, posts, isProfilePage = fal
             const saysSpan = document.createElement("span");
             saysSpan.textContent = " says:";
 
-            nameWrapper.appendChild(authorWrapper);
-            nameWrapper.appendChild(saysSpan);
+            nameWrapper.append(authorWrapper, saysSpan);
 
             //Upload date
             const timeWrapper = document.createElement("p");
@@ -45,15 +44,13 @@ export default async function displayPosts(container, posts, isProfilePage = fal
             timeWrapper.textContent = formatDate(updated);
 
             const postDetails = document.createElement("div");
-            postDetails.appendChild(nameWrapper);
-            postDetails.appendChild(timeWrapper);
+            postDetails.append(nameWrapper, timeWrapper);
 
             //Author details (name and upload)
             const detailsWrapper = document.createElement("a");
             detailsWrapper.setAttribute("class", "text-decoration-none text-black d-flex align-items-center border-bottom pb-2");
             detailsWrapper.setAttribute("href", `/profile/?name=${authorName}`);
-            detailsWrapper.appendChild(profileIconWrapper);
-            detailsWrapper.appendChild(postDetails);
+            detailsWrapper.append(profileIconWrapper, postDetails);
 
             //Post title
             const postTitle = document.createElement("h2");
@@ -72,8 +69,7 @@ export default async function displayPosts(container, posts, isProfilePage = fal
             postTagsContent.textContent = writeTags(tags);
             const postTags = document.createElement("p");
             postTags.setAttribute("class", "d-flex align-items-center");
-            postTags.appendChild(categoryIconWrapper);
-            postTags.appendChild(postTagsContent);
+            postTags.append(categoryIconWrapper, postTagsContent);
 
             //Post body
             const postContent = document.createElement("p");
@@ -84,15 +80,12 @@ export default async function displayPosts(container, posts, isProfilePage = fal
             const postContentWrapper = document.createElement("a");
             postContentWrapper.setAttribute("class", "d-block text-decoration-none text-black");
             postContentWrapper.setAttribute("href", `/post/?id=${id}`);
-            postContentWrapper.appendChild(postTitle);
-            postContentWrapper.appendChild(postTags);
-            postContentWrapper.appendChild(postContent);
+            postContentWrapper.append(postTitle, postTags, postContent);
 
             //Post (author details and post content)
             const postWrapper = document.createElement("div");
             postWrapper.setAttribute("class", "p-2 border border-dark rounded");
-            postWrapper.appendChild(detailsWrapper);
-            postWrapper.appendChild(postContentWrapper);
+            postWrapper.append(detailsWrapper, postContentWrapper);
 
             //Outer column
             const column = document.createElement("div");

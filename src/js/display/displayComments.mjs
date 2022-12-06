@@ -16,7 +16,7 @@ export default function displayComments(container, comments) {
         //Profile icon
         const profileIcon = document.createElement("div");
         profileIcon.setAttribute("class", "contact-icon me-2 d-flex align-items-center justify-content-center");
-        profileIcon.appendChild(display.profileIcon(false, owner));
+        profileIcon.append(display.profileIcon(false, owner));
 
         //Profile name
         const commenter = document.createElement("span");
@@ -27,8 +27,7 @@ export default function displayComments(container, comments) {
 
         const commenterWrapper = document.createElement("p");
         commenterWrapper.setAttribute("class", "m-0");
-        commenterWrapper.appendChild(commenter);
-        commenterWrapper.appendChild(commenterSays);
+        commenterWrapper.append(commenter, commenterSays);
 
         //Upload date
         const commentDate = document.createElement("p");
@@ -37,15 +36,13 @@ export default function displayComments(container, comments) {
 
         //Profile details (Profile name and upload date)
         const commenterDetails = document.createElement("div");
-        commenterDetails.appendChild(commenterWrapper);
-        commenterDetails.appendChild(commentDate);
+        commenterDetails.append(commenterWrapper, commentDate);
 
         //Profile (details and contact icon)
         const commentDetails = document.createElement("a");
         commentDetails.setAttribute("class", "text-decoration-none text-black d-flex align-items-center border-bottom p-2 pb-3");
         commentDetails.setAttribute("href", `/profile/?name=${owner}`);
-        commentDetails.appendChild(profileIcon);
-        commentDetails.appendChild(commenterDetails);
+        commentDetails.append(profileIcon, commenterDetails);
 
         //Post content (body)
         const commentContent = document.createElement("p");
@@ -54,9 +51,8 @@ export default function displayComments(container, comments) {
 
         const commentWrapper = document.createElement("div");
         commentWrapper.setAttribute("class", "p-2 my-3 border border-dark rounded");
-        commentWrapper.appendChild(commentDetails);
-        commentWrapper.appendChild(commentContent);
+        commentWrapper.append(commentDetails, commentContent);
 
-        container.appendChild(commentWrapper);
+        container.append(commentWrapper);
     });
 }
